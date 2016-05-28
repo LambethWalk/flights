@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#read -p "Please specify the Wireless Network SSID: " SSID
+#echo "$SSID"
+#SSID="1"
+
+SSID=$1
+WIFIPASS=$2
+
+sudo sed -i -e"s/ssid=.*/ssid=\"$SSID\"/" /etc/wpa_supplicant/wpa_supplicant.conf
+
+#read -p "Please specify the Wireless Network Password: " WIFIPASS
+#echo "$WIFIPASS"
+#WIFIPASS="1"
+sudo sed -i -e"s/psk=.*/psk=\"$WIFIPASS\"/" /etc/wpa_supplicant/wpa_supplicant.conf
+
+#sudo /sbin/ifdown wlan0
+
+#sudo /sbin/ifup wlan0

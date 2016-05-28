@@ -1,0 +1,10 @@
+<?php
+
+//$command= "/var/www/html/lanuch_browser.sh";
+echo shell_exec ("./scripts/launch_browser.);
+
+
+// outputs the username that owns the running php/httpd process
+// (on a system with the "whoami" executable in the path)
+//echo exec('whoami');
+?>
