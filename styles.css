@@ -1,0 +1,47 @@
+body {
+	background-color: #6b7d99;
+}
+div{
+	width:100%;
+	text-align: center;
+}
+
+p{
+    color: #ffffff;
+    font-size: 32px;
+    font-family: arial, sans-serif;
+}
+
+select{
+	border: 1px solid #eae034;
+    color: #666666;
+    padding: 14px 32px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+input {
+    border: 1px solid #eae034;
+    color: #666666;
+    padding: 14px 32px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+#submit:disabled {
+    background: #dddddd;
+}
+#submit{
+    background-color: #eae034;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
