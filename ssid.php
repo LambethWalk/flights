@@ -27,7 +27,11 @@ $label = 	'Hi David, which wifi network?';
 // if no lines, no networks found so junk the control
 if (count($lines) < 1){
 	$control = NULL;
+<<<<<<< HEAD
 	$label = 'Hmmm, can\'t find wifi networks. Unplug and try a different location.';
+=======
+	$label = 'Hmmm, can't find wifi networks. Unplug and try a different location.';
+>>>>>>> db147fc702e44a0d80ca6f70820d34023e210654
 	}
 
 ?>
