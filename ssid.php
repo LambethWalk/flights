@@ -20,7 +20,7 @@ $control = 	'<select name="ssid" onchange="validate(this.value);">'
 		. '<option value="">Select network</option>' // Add empty initial option
 		. $control
 		. '</select>'
-		. '<button id="button" disabled>Select</button>';
+		. '<button id="submit" disabled>Select</button>';
 
 $label = 	'Hi David, which wifi network?';
 
@@ -42,9 +42,9 @@ if (count($lines) < 1){
 function validate(text)
   {
     if (text.length > 1){
-      document.getElementById("button").disabled = false;
+      document.getElementById("submit").disabled = false;
     }else{
-      document.getElementById("button").disabled = true;
+      document.getElementById("submit").disabled = true;
     }
   }
 </script>
@@ -60,8 +60,3 @@ function validate(text)
 </body>
 
 </html>
-
-<?php
-// Deubugging
-// exec ( 'DISPLAY=:0 sudo /var/www/html/scripts/editWifi 2 2 2>&1', $output, $return_var );
-?>

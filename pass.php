@@ -50,7 +50,8 @@ function validate(text)
 				<!-- wrapper only needed to center the input -->
 
 				<!-- keyboard input -->
-				<input id="keyboard" type="text" onchange="validate(this.value);">
+				<input id="keyboard" name="pass" type="text" onchange="validate(this.value);">
+				<input id="ssid" name="ssid" value="<?= $ssid ?>" type="hidden">
 				<button id="submit" disabled>Select</button>
 
 			</div>
