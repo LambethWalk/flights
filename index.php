@@ -1,4 +1,6 @@
 <?php
+exec('DISPLAY=:0 xte "key F11"');
+
 require_once('is_connected.php');
 
 $connected = is_connected('www.google.com');

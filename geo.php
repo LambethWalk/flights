@@ -31,12 +31,14 @@ $control .= '</select>';
 <body>
 	<form action="flights.php" method="get">		
 		<div>
-			<p>Which city?</p>
+			<p>Select location</p>
 			<?= $control?>
-			<button id="submit">Select</button>
+			<button id="submit" onclick="javascript:document.getElementById('preloader').style.display = '';">Select</button>
 		</div>
-		
 	</form>
+	<div id="preloader" style="display:none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background-color: rgba(0,0,0,0.5)">
+	<img style="position:relative; top:75%;" src="preloader.gif"/>
+	</div>
 </body>
 
 </html>

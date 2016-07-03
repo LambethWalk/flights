@@ -52,13 +52,16 @@ function validate(text)
 				<!-- keyboard input -->
 				<input id="keyboard" name="pass" type="text" onchange="validate(this.value);">
 				<input id="ssid" name="ssid" value="<?= $ssid ?>" type="hidden">
-				<button id="submit" disabled>Select</button>
+				<button id="submit" disabled onclick="javascript:document.getElementById('preloader').style.display = '';">Select</button>
 
 			</div>
 			<!-- End wrapper -->
 
 		</div>
 	</form>
+		<div id="preloader" style="display:none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background-color: rgba(0,0,0,0.5)">
+	<img style="position:relative; top:75%;" src="preloader.gif"/>
+	</div>
 </body>
 
 </html>
