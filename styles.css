@@ -1,6 +1,10 @@
 body {
 	background-color: #6b7d99;
+    font-family: Roboto, sans-serif;
+    font-size:20px;
+	font-weight: 900;
 }
+
 div{
 	width:100%;
 	text-align: center;
@@ -9,39 +13,42 @@ div{
 p{
     color: #ffffff;
     font-size: 32px;
-    font-family: arial, sans-serif;
 }
 
 select{
+    font-family: Roboto, sans-serif;
 	border: 1px solid #eae034;
     color: #666666;
     padding: 14px 32px;
     text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 32px;
 }
 
 input {
+    font-family: Roboto, sans-serif;
     border: 1px solid #eae034;
     color: #666666;
     padding: 14px 32px;
     text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 32px;
 }
 
 #submit:disabled {
     background: #dddddd;
+    color: gray;
 }
 #submit{
+    font-family: Roboto, sans-serif;
     background-color: #eae034;
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 32px;
 }

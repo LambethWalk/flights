@@ -6,9 +6,6 @@ exec ( '/var/www/html/scripts/scan_ssid.sh');
 // read file into array
 $lines = file ( 'networks.txt' );
 
-// get query string variables
-$action = $_GET['action'];
-
 // create SSID menu
 $control = '';
 
