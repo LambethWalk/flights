@@ -1,10 +1,16 @@
 <?php
 
-// get available network and write to file
-exec ( '/var/www/html/scripts/scan_ssid.sh');
+// get available networks and write to file
+exec('sudo /var/www/html/scripts/scan_ssid.sh', $output);
+
+//var_dump($output);
+
+//exit();
 
 // read file into array
 $lines = file ( 'networks.txt' );
+//var_dump($lines);
+//exit();
 
 // create SSID menu
 $control = '';
@@ -14,7 +20,7 @@ foreach ( $lines as $line ) {
 		}
 
 $control = 	'<select name="ssid" onchange="validate(this.value);">'
-		. '<option value="">Select network</option>' // Add empty initial option
+		. '<option value="">Select network</option>'
 		. $control
 		. '</select>'
 		. '<button id="submit" disabled>Select</button>';
@@ -26,7 +32,6 @@ if (count($lines) < 1){
 	$control = NULL;
 	$label = 'Hmmm, can\'t find wifi networks. Unplug and try a different location.';
 	}
-
 ?>
 
 <!DOCTYPE html>

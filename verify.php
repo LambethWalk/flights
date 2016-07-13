@@ -25,7 +25,10 @@ network={
 exec ( "echo '$wpa_conf' > /tmp/wifidata", $return );
 
 //copy from temp to actual location
-system ( 'sudo cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf', $returnval );
+exec( 'sudo cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf',$output, $returnval);
+//var_dump($output);
+//exit();
+
 if ($returnval != 0) {
 	$message = 'Could not update wifi configuration file. Please try again.';
 	$url = '/ssid.php';

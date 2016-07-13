@@ -6,7 +6,7 @@ require_once('is_connected.php');
 $connected = is_connected('www.google.com');
 
 //debug
-//$connected = FALSE;
+$connected = FALSE;
 
 if ($connected){
         header('Location: http://localhost/geo.php');
