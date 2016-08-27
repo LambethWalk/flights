@@ -25,7 +25,7 @@ function is_connected($host)
 	}else{
        		 $is_conn = FALSE;
 	}
-	exec('echo $(date) " | is_connected.php line 28 | Returned " $is_conn >> log');
+	exec('echo $(date) " | is_connected.php line 28 | Connected=" $is_conn >> log');
 	return $is_conn;
 }
 
