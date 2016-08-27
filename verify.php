@@ -30,11 +30,6 @@ exec('echo $(date) " | verify.php line 29 | wpa save: " $output $ret >> log');
 //var_dump($output);
 //exit();
 
-if ($returnval != 0) {
-	$message = 'Could not update wifi configuration file. Please try again.';
-	$url = '/ssid.php';
-}
-
 // reload config
 exec('sudo wpa_cli reconfigure', $output, $ret);
 exec('echo $(date) " | verify.php line 40 | wpa_cli reconfigure: " $output $ret >> log');
