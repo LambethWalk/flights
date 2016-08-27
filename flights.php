@@ -1,4 +1,7 @@
 <?php
+
+require_once("logger.php");
+
 $querystring = $_GET['loc'];
 
 //exec('export DISPLAY=:0', $output, $ret);
@@ -13,7 +16,8 @@ $querystring = $_GET['loc'];
 
 //disbale touch screen so that user can't click links (no way to go back)
 exec('DISPLAY=:0 sudo /usr/bin/xinput disable 6 2>&1', $output, $ret);
-exec("echo $(date) ' | flights.php Line 16 | xinput disable: " . $output . $ret . "' >> log");
+writeLog(__LINE__, $output, $ret);
+
 //var_dump($output);
 //echo ('xinput: ' . $ret . '<br/>');
 

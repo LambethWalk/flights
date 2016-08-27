@@ -1,4 +1,7 @@
 <?php
+
+require_once("logger.php");
+
 function is_connected($host)
 {
 
@@ -12,7 +15,7 @@ function is_connected($host)
 	$ip2 = gethostbyname($host);
 
 	if ($ip1 == $ip2){
-		exec("echo $(date) ' | is_connected.php line 15 | Router returned 200'  >> log");
+		writeLog("is_connected: ", "Router returned 200");
 		return FALSE;
 	}
 
@@ -25,7 +28,7 @@ function is_connected($host)
 	}else{
        		 $is_conn = FALSE;
 	}
-	exec("echo $(date) ' | is_connected.php line 28 | Connected=" . $is_conn . "' >> log");
+	writeLog("is connected: ", $is_conn);
 	return $is_conn;
 }
 

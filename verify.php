@@ -1,6 +1,7 @@
 <?php
 
 require_once('is_connected.php');
+require_once("logger.php");
 
 $ssid = $_GET ['ssid'];
 $pass = $_GET ['pass'];
@@ -23,24 +24,29 @@ network={
 
 //save to temp
 exec ( "echo '$wpa_conf' > /tmp/wifidata", $output, $ret );
-exec("echo $(date) ' | verify.php line 26 | wpa temp: " . $output .  $ret . "' >> log");
+writeLog(__LINE__, $output, "wpa temp " . $ret);
+
 //copy from temp to actual location
-exec( 'sudo cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf', $output, $ret);
-exec('echo $(date) " | verify.php line 29 | wpa save: " $output $ret >> log');
+exec("sudo cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf", $output, $ret);
+writeLog(__LINE__, $output, "wpa write " . $ret);
+
 //var_dump($output);
 //exit();
 
 // reload config
-exec('sudo wpa_cli reconfigure', $output, $ret);
-exec("echo $(date) ' | verify.php line 40 | wpa_cli reconfigure: " . $output . $ret . "' >> log");
+exec("sudo wpa_cli reconfigure", $output, $ret);
+writeLog(__LINE__, $output, " wpa reconfig " . $ret);
 
+/*
 // restart interface
-exec('sudo ifdown wlan0', $output, $ret);
-exec("echo $(date) ' | verify.php line 44 | ifdown: " . $output . $ret ."' >> log");
-exec('sleep 2');
-exec('sudo ifup wlan0', $output, $ret); 
-exec("echo $(date) ' | verify.php line 47 | ifup: " . $output . $ret . "' >> log");
-exec('sleep 5');
+exec("sudo ifdown wlan0", $output, $ret);
+writeLog(__LINE__, $output, "ifdown " . $ret);
+exec("sleep 2");
+exec("sudo ifup wlan0", $output, $ret); 
+writeLog(__LINE__, $output, "ifup " . $ret);
+*/
+
+exec("sleep 10");
 
 // check web connection
 if (is_connected('www.google.com')) {
