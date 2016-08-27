@@ -23,7 +23,7 @@ network={
 
 //save to temp
 exec ( "echo '$wpa_conf' > /tmp/wifidata", $output, $ret );
-exec('echo $(date) " | verify.php line 26 | wpa temp: " $output $ret >> log');
+exec("echo $(date) ' | verify.php line 26 | wpa temp: " . $output .  $ret . "' >> log");
 //copy from temp to actual location
 exec( 'sudo cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf', $output, $ret);
 exec('echo $(date) " | verify.php line 29 | wpa save: " $output $ret >> log');
@@ -32,14 +32,14 @@ exec('echo $(date) " | verify.php line 29 | wpa save: " $output $ret >> log');
 
 // reload config
 exec('sudo wpa_cli reconfigure', $output, $ret);
-exec('echo $(date) " | verify.php line 40 | wpa_cli reconfigure: " $output $ret >> log');
+exec("echo $(date) ' | verify.php line 40 | wpa_cli reconfigure: " . $output . $ret . "' >> log");
 
 // restart interface
 exec('sudo ifdown wlan0', $output, $ret);
-exec('echo $(date) " | verify.php line 44 | ifdown: " $output $ret >> log');
+exec("echo $(date) ' | verify.php line 44 | ifdown: " . $output . $ret ."' >> log");
 exec('sleep 2');
 exec('sudo ifup wlan0', $output, $ret); 
-exec('echo $(date) " | verify.php line 47 | ifup: " $output $ret >> log');
+exec("echo $(date) ' | verify.php line 47 | ifup: " . $output . $ret . "' >> log");
 exec('sleep 5');
 
 // check web connection

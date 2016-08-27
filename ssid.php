@@ -2,15 +2,15 @@
 
 // get available networks and write to file
 exec('sudo /var/www/html/scripts/scan_ssid.sh', $output, $ret);
-exec('echo $(date) " | ssid.php line 5 | Output: " $output $ret >> log');
 //var_dump($output);
-
-//exit();
 
 // read file into array
 $lines = file ( 'networks.txt' );
-//var_dump($lines);
-//exit();
+
+//logging
+$log = implode(';' , $lines);
+$log = preg_replace('/[\r\n]+/','', $log);
+exec("echo $(date) ' | ssid.php Line 12 | " .  $log . "' >> log");
 
 // create SSID menu
 $control = '';
