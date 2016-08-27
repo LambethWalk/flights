@@ -2,7 +2,7 @@
 
 // get available networks and write to file
 exec('sudo /var/www/html/scripts/scan_ssid.sh', $output);
-
+exec('echo $(date) " | ssid.php line 5 | Output: " $output >> log');
 //var_dump($output);
 
 //exit();

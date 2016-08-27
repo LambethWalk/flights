@@ -6,7 +6,7 @@ exec ( '/var/www/html/scripts/scan_ssid.sh');
 
 // read file into array
 $lines = file ( 'networks.txt' );
-
+exec('echo $(date) " | wifi.php line 9 | Networks: " $lines >> log');
 // get query string variables
 $qsnum = count ( $_GET );
 
@@ -36,7 +36,7 @@ switch ($qsnum) {
 		break;
 	case 2: // ssid and password passed, so save network settings
 		// close keyboard
-		exec('killall matchbox-keyboard');
+		//exec('killall matchbox-keyboard');
 		// go to connection page
 		$qs = 'ssid=' . urlencode($_GET["ssid"]) . '&pass=' . urlencode($_GET["pass"]);
 		header('Location: http://localhost/connect.php?' . $qs);

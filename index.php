@@ -1,5 +1,6 @@
 <?php
 exec('DISPLAY=:0 xte "key F11"');
+exec('echo $(date) " | index.php line 3 | Output: " $output  >> log');
 
 require_once('is_connected.php');
 

@@ -23,9 +23,10 @@ network={
 
 //save to temp
 exec ( "echo '$wpa_conf' > /tmp/wifidata", $return );
-
+exec('echo $(date) " | verify.php line 26 | wpa temp returned " $return >> log');
 //copy from temp to actual location
 exec( 'sudo cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf',$output, $returnval);
+exec('echo $(date) " | verify.php line 29 | wpa save returned " $return >> log');
 //var_dump($output);
 //exit();
 
@@ -36,12 +37,15 @@ if ($returnval != 0) {
 
 // reload config
 system ( 'sudo wpa_cli reconfigure', $returnval );
+exec('echo $(date) " | verify.php line 40 | wpa_cli reconfigure  returned " $return >> log');
 
 // restart interface
 exec('sudo ifdown wlan0');
+exec('echo $(date) " | verify.php line 44 | ifdown returned " $return >> log');
 exec('sleep 2');
 exec('sudo ifup wlan0'); 
 exec('sleep 10');
+exec('echo $(date) " | verify.php line 48 | ifup returned " $return >> log');
 
 // check web connection
 if (is_connected('www.google.com')) {

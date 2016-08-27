@@ -13,6 +13,7 @@ $querystring = $_GET['loc'];
 
 //disbale touch screen so that user can't click links (no way to go back)
 exec('DISPLAY=:0 sudo /usr/bin/xinput disable 6 2>&1', $output, $ret);
+exec('echo $(date) " | flights.php | Output: " $output  >> log');
 //var_dump($output);
 //echo ('xinput: ' . $ret . '<br/>');
 
@@ -25,3 +26,4 @@ exec('DISPLAY=:0 sudo /usr/bin/xinput disable 6 2>&1', $output, $ret);
 
 //go to site
 header('Location: https://www.flightradar24.com/' . $querystring);
+

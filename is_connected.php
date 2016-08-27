@@ -12,6 +12,7 @@ function is_connected($host)
 	$ip2 = gethostbyname($host);
 
 	if ($ip1 == $ip2){
+		exec('echo $(date) " | is_connected.php line 15 | Router returned 200"  >> log');
 		return FALSE;
 	}
 
@@ -24,7 +25,7 @@ function is_connected($host)
 	}else{
        		 $is_conn = FALSE;
 	}
-
+	exec('echo $(date) " | is_connected.php line 28 | Returned " $is_conn >> log');
 	return $is_conn;
 }
 
