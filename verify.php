@@ -1,6 +1,6 @@
 <?php
 
-require_once('is_connected.php');
+require_once("is_connected.php");
 require_once("logger.php");
 
 $ssid = $_GET ['ssid'];
@@ -24,7 +24,7 @@ network={
 
 //save to temp
 exec ( "echo '$wpa_conf' > /tmp/wifidata", $output, $ret );
-writeLog(__LINE__, $output, "wpa temp " . $ret);
+writeLog(__LINE__, $output, " wpa temp " . $ret);
 
 //copy from temp to actual location
 exec("sudo cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf", $output, $ret);
@@ -49,14 +49,16 @@ writeLog(__LINE__, $output, "ifup " . $ret);
 exec("sleep 10");
 
 // check web connection
-if (is_connected('www.google.com')) {
-	if (is_connected('www.flightradar24.com')){
-		header('Location: http://localhost/geo.php');
+if (is_connected("www.google.com")) {
+	if (is_connected("www.flightradar24.com")){
+		header("Location: http://localhost/geo.php");
 	}else{
-		$message = 'Could not connect to www.flightradar24.com. Try to open manually or come back later.';
-		$url = 'https://www.flightradar24.com/51.48,-0.12/12';
+		writeLog(__LINE__, "Cannot connect to flightrdar.com");
+		$message = "Could not connect to www.flightradar24.com. Try to open manually or come back later.";
+		$url = "https://www.flightradar24.com/51.48,-0.12/12";
 	}
 }else{ 
+	writeLog(__LINE__, "Cannot connect to google after");
 	$message = 'Could not connect to the internet. Try your password again.';
 	$url = '/ssid.php';
 }
@@ -74,3 +76,4 @@ if (is_connected('www.google.com')) {
 <button id="submit" onclick="window.location.href='<?= $url ?>'">Continue</button>
 </div>
 </body>
+

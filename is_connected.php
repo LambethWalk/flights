@@ -5,8 +5,16 @@ require_once("logger.php");
 function is_connected($host)
 {
 
-//$host = 'www.google.com';
+$fp = fsockopen("www.google.com", 80, $errno, $errstr, 30);
+if (!$fp) {
+   writeLog ($errstr, $errno);
+   return FALSE;
+   }else{
+   writeLog("connected");
+   return TRUE;
+}
 
+/*
 	if (strlen($host) < 5) {throw new Exception('Domain not passed to is_connected');}
 
 	// Local DNS might redirect to a friendly page which also returns 200,
@@ -30,5 +38,6 @@ function is_connected($host)
 	}
 	writeLog("is connected: ", $is_conn);
 	return $is_conn;
+*/
 }
 
